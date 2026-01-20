@@ -1,4 +1,7 @@
 // const { resolve } = require("path")
+
+
+// Create a script which has two methods that return promises - One of the promises should get reolved after 6 seconds timeout and the other one after 3 seconds timeout. Call the promise in such a way that the second promise is invoked after the first promise is resolved.
 //call by writing 'node file.js'
 
 let mypromise1 = new Promise ((resolve,reject ) =>
