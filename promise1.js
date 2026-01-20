@@ -1,5 +1,5 @@
 // const { resolve } = require("path")
-
+//call by writing 'node file.js'
 
 let mypromise1 = new Promise ((resolve,reject ) =>
 {
