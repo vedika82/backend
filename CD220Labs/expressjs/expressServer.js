@@ -6,16 +6,25 @@ const app = new express();
 
 // Initialize an array to store login details
 let loginDetails = [];
+const monthNames =['jan', 'feb' ,'march' ,'april' , 'may' , 'june' ,"july" , "aug" , "sep" ,"oct" , "nov" ,"dec"]
 
+
+// curl localhost:3333 to listent to a specific message
 // Define the root route to send a welcome message
 app.get("/", (req, res) => {
     res.send("Welcome to the express server");
 });
 
+
+
+// Try the other end points with the curl commands in the same terminal.
+// /login/:name
+// curl -X POST http://localhost:3333/login/Jason
 // Define a route to send login details as a JSON string
 app.get("/loginDetails", (req, res) => {
     res.send(JSON.stringify(loginDetails));
 });
+
 
 // Define a route to handle login requests and store login details
 app.post("/login/:name", (req, res) => {
@@ -26,6 +35,20 @@ app.post("/login/:name", (req, res) => {
 // Define a dynamic route to greet users by name
 app.get("/:name", (req, res) => {
     res.send("Hello " + req.params.name);
+});
+
+// # Define a route to fetch the month name based on a given number
+app.get("/fetchMonth/:num", (req, res) => {
+    // # Parse the number from the request parameters
+    let num = parseInt(req.params.num);
+    // # Check if the number is a valid month number
+    if(num < 1 || num > 12) {
+        // # Send an error message if the number is not valid
+        res.send("Not a valid month number");
+    } else {
+        // # Send the corresponding month name if the number is valid
+        res.send(monthNames[num - 1]);
+    }
 });
 
 // Start the server and listen on port 3333
