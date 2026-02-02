@@ -91,3 +91,22 @@ app.get("/auth/get_message", (req, res) => {
 const PORT = 5000; // Define the port number
 
 app.listen(PORT, () => console.log("Server is running")); // Start the server and listen on the specified port
+
+
+
+
+// In the second terminal window, use the following curl command.
+// curl localhost:5000/auth/get_message
+// You should see an output which says {"message":"User not logged in"}.
+
+//open in web browser
+// You have to register a user with a username and password and login with that username and password to be able to access the end-point. 
+// Click on the Skills Network Toolbox icon, choose Others and click Launch Application. Enter the port number 5000 and open the URL. 
+// It will open in a new browser window. Copy the url. Go to https://www.postman.com/. You may have to sign in if this is your first time using postman.
+
+// In the postman, enter the URL that you copied and suffix it with /register.
+// Select 'Body' >> 'raw' >> 'JSON' and pass the parameters.
+// {"username":"user2", "password":"password2"}
+// Set the query type to POST and click send. You will see a confirmation saying that the user has been registered.
+// Use the same copied url now to login with the suffix /login. The parameters to be passed remain the same. This is also a POST request. Click send. You will see a message confirming that you are logged in, as seen below.
+// Now you can access the /auth/get_message end point and it will return the message.
