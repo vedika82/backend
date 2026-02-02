@@ -27,3 +27,20 @@ app.get("/home", (req, res) => {
 app.listen(3333, () => {
     console.log(`Listening at http://localhost:3333`);
 });
+
+
+//INSTRUCTIONS:
+// Run the server.
+// node expressAppLevelMiddleware.js
+
+// You should see output which says Listening at http://localhost:3333
+
+// In the second terminal window, use the curl command to ping the application.
+// curl localhost:3333/home
+// You should see output which say This user cannot login.
+
+// Execute curl command passing the password parameter
+// curl http://localhost:3333/home?password=pwd123
+// You should see output which say Hello World!.
+
+// This is because the server has a middleware which filters each request to the server to see what the password is and allows to proceed only when the password is pwd123.
